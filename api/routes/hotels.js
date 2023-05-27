@@ -8,6 +8,7 @@ import {
   getHotelRooms,
   getHotels,
   updateHotel,
+  createBooking,
 } from "../controllers/hotel.js";
 import Hotel from "../models/Hotel.js";
 import {verifyAdmin} from "../utils/verifyToken.js"
@@ -15,6 +16,8 @@ const router = express.Router();
 
 //CREATE
 router.post("/", verifyAdmin, createHotel);
+router.post("/booking",verifyAdmin,createBooking);
+
 
 //UPDATE
 router.put("/:id", verifyAdmin, updateHotel);

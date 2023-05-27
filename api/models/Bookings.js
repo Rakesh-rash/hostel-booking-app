@@ -1,6 +1,14 @@
 import mongoose from "mongoose";
 const BookingsSchema = new mongoose.Schema({
-  name: {
+  username: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  hotelname: {
     type: String,
     required: true,
   },
@@ -8,11 +16,11 @@ const BookingsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  city: {
-    type: String,
-    required: true,
+  roomno:{
+    type:Number,
+    required:true,
   },
-  address: {
+  status: {
     type: String,
     required: true,
   },
@@ -20,33 +28,15 @@ const BookingsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  photos: {
-    type: [String],
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  desc: {
-    type: String,
-    required: true,
-  },
-  rating: {
-    type: Number,
-    min: 0,
-    max: 5,
-  },
-  rooms: {
-    type: [String],
-  },
-  cheapestPrice: {
+  amount: {
     type: Number,
     required: true,
   },
-  featured: {
-    type: Boolean,
-    default: false,
+  
+  date:{
+    type:String,
+    required:true,
   },
 });
 
-export default mongoose.model("Hotel", BookingsSchema)
+export default mongoose.model("Booking", BookingsSchema)

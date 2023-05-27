@@ -1,6 +1,6 @@
 import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js";
-
+import Booking from "../models/Bookings.js"
 export const createHotel = async (req, res, next) => {
   const newHotel = new Hotel(req.body);
 
@@ -94,6 +94,16 @@ export const getHotelRooms = async (req, res, next) => {
       })
     );
     res.status(200).json(list)
+  } catch (err) {
+    next(err);
+  }
+};
+export const createBooking = async (req, res, next) => {
+  const newBooking = new Booking(req.body);
+
+  try {
+    const savedBooking = await newBooking.save();
+    res.status(200).json(savedBooking);
   } catch (err) {
     next(err);
   }
